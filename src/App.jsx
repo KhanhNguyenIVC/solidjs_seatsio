@@ -3,11 +3,12 @@ import { Navbar, Container, Nav } from 'solid-bootstrap';
 import MovieList from './components/Movie-List';
 import MovieDetails from './components/Movie-Detail';
 import SeatsIO from './components/Seats-IO';
+// import 'solid-devtools';
 
 function App() {
   return (
     <>
-      <Container>
+      <Container fluid>
         <Navbar bg="dark" expand="lg">
             <Nav.Link class="text-white" href="/">Posts</Nav.Link>
             <Nav.Link class="text-white" href="/seats-io">SeatsIO</Nav.Link>

@@ -49,7 +49,7 @@ const MovieList = () => {
 
             <section>
                 <Form.Group class="mb-3">
-                    <Form.Control type="search" placeholder="Search Group Post (ex:1)" value={searchWord()} onChange={(event) => handleSearch(event)} />
+                    <Form.Control type="search" placeholder="Search Group Post (ex:1 to 10)" value={searchWord()} onChange={(event) => handleSearch(event)} />
                 </Form.Group>
             </section>
 
@@ -73,7 +73,7 @@ const MovieList = () => {
                             }</For>
                         </Row>
                     ) : (
-                        <p>No movies found</p>
+                        <p>No data found</p>
                     )
                 }
             </section>
