@@ -1,7 +1,7 @@
 import { SeatsioClient, Region } from "seatsio";
 import { createSignal, onMount } from "solid-js";
-import { Card, Button, Toast, ToastContainer, Row, Col, Collapse } from "solid-bootstrap";
-import { createClient } from '@supabase/supabase-js'
+import { Card, Button, Toast, ToastContainer, Row, Col, Collapse, Spinner, ListGroup, Badge } from "solid-bootstrap";
+import { createClient } from '@supabase/supabase-js';
 import "./Seats-IO.css";
 
 const SeatsIO = () => {
@@ -136,8 +136,8 @@ const SeatsIO = () => {
         for (const ticket of ticketSelected()) {
             const { error } = await supabase
                 .from('tickets')
-                .insert({ ticket_id: ticket.id })
-            ticketBooked().push({ ticket_id: ticket.id })
+                .insert({ ticket_id: ticket.id, category_id: ticket.category.key })
+            ticketBooked().push({ ticket_id: ticket.id, category_id: ticket.category.key })
             seatIds.push(ticket.id)
         }
 
@@ -251,7 +251,7 @@ const SeatsIO = () => {
             <h1>Seats IO Chart</h1>
             <div id="chart" class="seatsio-chart"></div>
             <Row>
-                <Col>
+                <Col xs={4}>
                     <h5>Tickets have selected</h5>
                     {
                         ticketSelected().length > 0 ? (
@@ -259,15 +259,22 @@ const SeatsIO = () => {
                                 <ul>
                                     <For each={ticketSelected()}>{(ticket) =>
                                         <li class="pt-1">
-                                            {ticket.id}, type: {ticket.ticketType}, price: {priceFormatter(ticket.price)}
+                                            <span class={ticket.category.key === 1 ? 'txt-premium-ticket' : 'txt-standard-ticket'}>{ticket.id}</span>, type: {ticket.ticketType}, price: {priceFormatter(ticket.price)}
                                         </li>
                                     }</For>
                                 </ul>
                                 <div>
-                                    <Card style={{ width: '35vh' }}>
+                                    <Card style={{ width: '39vh' }}>
                                         <Card.Body>
-                                            Total: {ticketSelected().length} {ticketSelected().length <= 1 ? 'seat' : 'seats'} - {priceFormatter(totalPriceTicketSelected())}
-                                            <Button style={{ width: '11vh' }} disabled={isHandling()} onClick={!isHandling() ? [bookTicket, 'book_ticket_selected'] : null} class="ms-3" variant="dark">{isHandling() ? 'Handling...' : 'Book'}</Button>
+                                            Total: <Badge pill bg="dark">{ticketSelected().length} {ticketSelected().length <= 1 ? 'seat' : 'seats'}</Badge> - <span style={{'font-weight': 'bold'}}>{priceFormatter(totalPriceTicketSelected())}</span>
+                                            <Show
+                                                when={isHandling()}
+                                                fallback={
+                                                    <Button style={{ width: '13vh' }} onClick={[bookTicket, 'book_ticket_selected']} class="ms-3" variant="dark">Book</Button>
+                                                }
+                                            >
+                                                <Button style={{ width: '13vh' }} disabled="true" onClick={null} class="ms-3" variant="dark"><Spinner animation="border" role="status" variant="light" size="sm" />Handling...</Button>
+                                            </Show>
                                         </Card.Body>
                                     </Card>
                                 </div>
@@ -277,20 +284,30 @@ const SeatsIO = () => {
                         )
                     }
                 </Col>
-                <Col>
+                <Col xs={4} style={{ "max-width": '350px' }}>
                     <h5>Tickets booked</h5>
                     {
                         ticketBooked().length > 0 ? (
                             <div class="card-booking-ticket">
-                                <ul id="list-ticket-booked">
-                                    <For each={ticketBooked()}>{(ticket) =>
-                                        <li class="pt-1">
-                                            {ticket.ticket_id} <Button disabled={isHandling()} onClick={!isHandling() ? [clearTicket, ticket.ticket_id] : null} variant="dark" size="sm">x</Button>
-                                        </li>
+                                <ListGroup variant="flush">
+                                    <For each={ticketBooked()}>{(ticket, i) =>
+                                        <ListGroup.Item>
+                                            <Row>
+                                                <Col xs={9}>{i() + 1}. <span class={ticket.category_id === 1 ? 'txt-premium-ticket' : 'txt-standard-ticket'}>{ticket.ticket_id}</span></Col>
+                                                <Col><Button disabled={isHandling()} onClick={!isHandling() ? [clearTicket, ticket.ticket_id] : null} variant="dark" size="sm">x</Button></Col>
+                                            </Row>
+                                        </ListGroup.Item>
                                     }</For>
-                                </ul>
+                                </ListGroup>
                                 <div>
-                                    <Button style={{ width: '11vh' }} disabled={isHandling()} onClick={!isHandling() ? [clearAllTicket, 'clear_all_ticket_booked'] : null} class="ms-3" variant="dark">Clear All</Button>
+                                    <Show
+                                        when={isHandling()}
+                                        fallback={
+                                            <Button style={{ width: '13vh' }} onClick={[clearAllTicket, 'clear_all_ticket_booked']} class="ms-3" variant="dark">Clear All</Button>
+                                        }
+                                    >
+                                        <Button style={{ width: '13vh' }} disabled="true" onClick={null} class="ms-3" variant="dark"><Spinner animation="border" role="status" variant="light" size="sm" />Handling...</Button>
+                                    </Show>
                                 </div>
                             </div>
                         ) : (
@@ -328,7 +345,6 @@ const SeatsIO = () => {
                     </div>
                 )
             }
-
         </>
     )
 }

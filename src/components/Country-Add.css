@@ -1,0 +1,14 @@
+input {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.error-message {
+    color: #dc3545;
+}
+
+.error-input {
+    border-color: #dc3545;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #dc3545;
+    outline: 0 none;
+}

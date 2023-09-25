@@ -84,3 +84,13 @@
 .toast-body {
     background-color: #fff;
 }
+
+.txt-premium-ticket {
+    color: #4377a4;
+    font-weight: 600;
+}
+
+.txt-standard-ticket {
+    color: #982b4e;
+    font-weight: 600;
+}
