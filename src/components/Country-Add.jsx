@@ -25,12 +25,24 @@ const CountryAdd = () => {
         errorClass: "error-input"
     })
 
-    const formatCountryCode = ({ value }) => {
-        console.log('validate country code', value)
+    const validateCountryCode = async ({ value }) => {
+        console.log('validate format country code', value)
         var regex = /^(\+?\d{1,3}|\d{1,2}-\d{1,3})$/gm
         var match = value.match(regex)
+        if (match == null) {
+            return 'Correct format: d{1,3} | d{1,2}-d{1,3}'
+        }
 
-        return match != null ? false : 'Correct format: d{1,3} | d{1,2}-d{1,3}'
+        console.log('validate duplicate country code', value)
+        const { data, error } = await supabase
+            .from('countries')
+            .select()
+            .eq('country_code', value)
+        if (data.length > 0) {
+            return 'Country code already exist'
+        } else {
+            return false
+        }
     }
 
     const fnSubmitForm = async () => {
@@ -120,7 +132,7 @@ const CountryAdd = () => {
                                 label="Country Code*"
                                 class="mb-3"
                             >
-                                <input type="text" class="form-control" placeholder="Country Code" name="country_code" required use:validate={[formatCountryCode]} onChange={[updateFormField, 'country_code']} value={form.country_code} />
+                                <input type="text" class="form-control" placeholder="Country Code" name="country_code" required use:validate={[validateCountryCode]} onChange={[updateFormField, 'country_code']} value={form.country_code} />
                                 {errors.country_code && <ErrorMessage error={errors.country_code} />}
                             </FloatingLabel>
 

@@ -26,6 +26,9 @@ const CountryList = () => {
         getCountries()
     })
 
+    /**
+     * Init page: Get all countries
+     */
     const getCountries = async () => {
         setLoading(true)
         const { data, error } = await supabase
@@ -37,6 +40,11 @@ const CountryList = () => {
         setLoading(false)
     }
 
+    /**
+     * Search function
+     * 
+     * @param {*} event 
+     */
     const handleSearch = async (event) => {
         setSearchWord(event.target.value)
         if ((event.target.value).length === 0) {
@@ -53,12 +61,46 @@ const CountryList = () => {
         }
     }
 
+    /**
+     * Export data based on data filter
+     * 
+     * @param {*} data 
+     * @param {*} event 
+     */
+    const exportData = (data, event) => {
+        event.preventDefault()
+        console.log('handle exporting with data', data)
+
+        const rows = countries()
+        let csvContent = "data:text/csv;charset=utf-8,"
+        // Set title header csv
+        csvContent += "Name,Country Code,ISO Codes,Population,Area Km2,GDP\r\n"
+
+        rows.forEach((rowArray) => {
+            delete rowArray.id
+            delete rowArray.image
+            rowArray.population = rowArray.population.replaceAll(",", "")
+            rowArray.area_km2 = rowArray.area_km2.replaceAll(",", "")
+            let row = Object.values(rowArray).join(",")
+            csvContent += row + "\r\n"
+        })
+        var encodeUri = encodeURI(csvContent)
+        var link = document.createElement("a")
+        link.setAttribute("href", encodeUri)
+        link.setAttribute("download", "solidjs_countries.csv")
+        document.body.appendChild(link)
+        link.click()
+    }
+
     return (
         <>
             <header>
                 <Row>
                     <Col><h1>Country List</h1></Col>
-                    <Col><Button href="/country-add" class="float-end mt-2" variant="dark"><i class="fa fa-plus-circle"></i> Add</Button></Col>
+                    <Col>
+                        <Button href="/country-add" class="float-end mt-2" variant="dark"><i class="fa fa-plus-circle"></i> Add</Button>
+                        <Button onClick={[exportData, 'export_data']} class="float-end mt-2 me-2" variant="dark"><i class="fa fa-arrow-circle-down"></i> Export</Button>
+                    </Col>
                 </Row>
             </header>
 

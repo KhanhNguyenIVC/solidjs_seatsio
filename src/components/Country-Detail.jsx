@@ -94,7 +94,7 @@ const CountryDetails = (props) => {
                 {
                     form.id != '' && (
                         <>
-                            <Card style={{ width: '18rem' }} class="shadow">
+                            <Card style={{ width: '18rem' }} class="shadow mb-3">
                                 <Card.Img variant="top" src={form.image} />
                                 <Card.Body>
                                     <Card.Title>{form.name}</Card.Title>
@@ -119,24 +119,23 @@ const CountryDetails = (props) => {
                                             <Form.Label>GDP $USD</Form.Label>
                                             <Form.Control type="text" placeholder="GDP $USD" value={form.gdp} onChange={[updateFormField, 'gdp']} />
                                         </Form.Group>
+                                        <Show
+                                            when={isHandling()}
+                                            fallback={
+                                                <div>
+                                                    <Button style={{ width: '13vh' }} onClick={[updateCountry, form.id]} class="mt-3" variant="dark">Update</Button>
+                                                    <Button style={{ width: '13vh' }} onClick={[deleteCountry, form.id]} class="mt-3 ms-1" variant="danger">Delete</Button>
+                                                </div>
+                                            }
+                                        >
+                                            <div>
+                                                <Button style={{ width: '13vh' }} disabled="true" onClick={null} class="mt-3" variant="dark"><Spinner animation="border" role="status" variant="light" size="sm" />Handling...</Button>
+                                                <Button style={{ width: '13vh' }} disabled="true" onClick={null} class="mt-3 ms-1" variant="danger"><Spinner animation="border" role="status" variant="light" size="sm" />Handling...</Button>
+                                            </div>
+                                        </Show>
                                     </Form>
                                 </Card.Body>
                             </Card>
-                            <Show
-                                when={isHandling()}
-                                fallback={
-                                    <div>
-                                        <Button style={{ width: '13vh' }} onClick={[updateCountry, form.id]} class="mt-3" variant="dark">Update</Button>
-                                        <Button style={{ width: '13vh' }} onClick={[deleteCountry, form.id]} class="mt-3 ms-3" variant="danger">Delete</Button>
-                                    </div>
-                                }
-                            >
-                                <div>
-                                    <Button style={{ width: '13vh' }} disabled="true" onClick={null} class="mt-3" variant="dark"><Spinner animation="border" role="status" variant="light" size="sm" />Handling...</Button>
-                                    <Button style={{ width: '13vh' }} disabled="true" onClick={null} class="mt-3 ms-3" variant="danger"><Spinner animation="border" role="status" variant="light" size="sm" />Handling...</Button>
-                                </div>
-                            </Show>
-
                         </>
                     )
                 }
