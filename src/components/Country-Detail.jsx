@@ -95,7 +95,7 @@ const CountryDetails = (props) => {
                     form.id != '' && (
                         <>
                             <Card style={{ width: '18rem' }} class="shadow">
-                                <Card.Img variant="top" src={`data:image/png;base64, ${form.image}`} />
+                                <Card.Img variant="top" src={form.image} />
                                 <Card.Body>
                                     <Card.Title>{form.name}</Card.Title>
                                     <Form>

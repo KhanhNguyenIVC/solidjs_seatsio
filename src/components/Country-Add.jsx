@@ -29,7 +29,7 @@ const CountryAdd = () => {
         console.log('validate country code', value)
         var regex = /^(\+?\d{1,3}|\d{1,2}-\d{1,3})$/gm
         var match = value.match(regex)
-        console.log(match);
+
         return match != null ? false : 'Correct format: d{1,3} | d{1,2}-d{1,3}'
     }
 
@@ -46,6 +46,8 @@ const CountryAdd = () => {
                 area_km2: '',
                 gdp: ''
             })
+            blah.src = '#'
+            imgInp.value = ''
             setIsHandling(false)
             showToggleTimeout()
         })
@@ -64,6 +66,25 @@ const CountryAdd = () => {
         })
     }
 
+    const onChangeImage = (data, event) => {
+        const [file] = imgInp.files
+
+        // Render to preview image
+        if (file) {
+            blah.src = URL.createObjectURL(file)
+        }
+
+        // Convert image to base64
+        let reader = new FileReader()
+        reader.onloadend = function () {
+            console.log('converted to base64', reader.result)
+            setForm({
+                'image': reader.result
+            })
+        }
+        reader.readAsDataURL(file)
+    }
+
     const closeToggle = () => {
         setShowToggle(false)
     }
@@ -80,6 +101,10 @@ const CountryAdd = () => {
             <section>
                 <Card style={{ width: '18rem' }} class="shadow">
                     <Card.Body>
+                        <Form.Group controlId="countryForm.image" className="mb-3">
+                            <input class="form-control" accept="image/*" type='file' id="imgInp" onChange={[onChangeImage, 'image']} />
+                            <img id="blah" src="#" class="card-img-top" alt="Country Image" />
+                        </Form.Group>
                         <form use:formSubmit={fnSubmitForm}>
                             <FloatingLabel
                                 controlId="countryForm.country_name"
@@ -112,7 +137,7 @@ const CountryAdd = () => {
                                 label="Population"
                                 class="mb-3"
                             >
-                                <Form.Control type="text" placeholder="Population" onChange={[updateFormField, 'population']} value={form.population}/>
+                                <Form.Control type="text" placeholder="Population" onChange={[updateFormField, 'population']} value={form.population} />
                             </FloatingLabel>
 
                             <FloatingLabel
