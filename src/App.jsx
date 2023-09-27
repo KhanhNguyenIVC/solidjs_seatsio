@@ -11,8 +11,8 @@ function App() {
     <>
       <Container>
         <Navbar bg="dark" expand="lg">
-          <Nav.Link class="text-white" href="/">Countries</Nav.Link>
-          <Nav.Link class="text-white" href="/seats-io">SeatsIO</Nav.Link>
+          <Nav.Link class="text-white" link href="/">Countries</Nav.Link>
+          <Nav.Link class="text-white" link href="/seats-io">SeatsIO</Nav.Link>
         </Navbar>
 
         <Routes>

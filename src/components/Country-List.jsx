@@ -96,10 +96,10 @@ const CountryList = () => {
         <>
             <header>
                 <Row>
-                    <Col><h1>Country List</h1></Col>
-                    <Col>
-                        <Button href="/country-add" class="float-end mt-2" variant="dark"><i class="fa fa-plus-circle"></i> Add</Button>
-                        <Button onClick={[exportData, 'export_data']} class="float-end mt-2 me-2" variant="dark"><i class="fa fa-arrow-circle-down"></i> Export</Button>
+                    <Col class="align-self-center"><h1>Country List</h1></Col>
+                    <Col class="align-self-center">
+                        <Button href="/country-add" link class="float-end" variant="dark"><i class="fa fa-plus-circle"></i> Add</Button>
+                        <Button onClick={[exportData, 'export_data']} class="float-end me-2" variant="dark"><i class="fa fa-arrow-circle-down"></i> Export</Button>
                     </Col>
                 </Row>
             </header>

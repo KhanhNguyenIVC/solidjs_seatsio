@@ -251,7 +251,7 @@ const SeatsIO = () => {
             <h1>Seats IO Chart</h1>
             <div id="chart" class="seatsio-chart"></div>
             <Row>
-                <Col xs={4}>
+                <Col xs={5}>
                     <h5>Tickets have selected</h5>
                     {
                         ticketSelected().length > 0 ? (
