@@ -2,7 +2,7 @@
 
 Here we used Firebase's hosting service to host our Solid project.
 
-Run demo on bellow link
+Run demo on bellow link.
 
 ```bash
 https://solidjs-61d50.web.app
