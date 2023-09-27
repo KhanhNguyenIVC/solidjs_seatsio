@@ -1,3 +1,13 @@
+## Deploying To Firebase
+
+Here we used Firebase's hosting service to host our Solid project.
+
+Run demo on bellow link
+
+```bash
+https://solidjs-61d50.web.app
+```
+
 ## Usage
 
 Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
