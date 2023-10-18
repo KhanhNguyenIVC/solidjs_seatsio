@@ -82,7 +82,7 @@ const CountryList = () => {
             rowArray.population = rowArray.population.replaceAll(",", "")
             rowArray.area_km2 = rowArray.area_km2.replaceAll(",", "")
             let row = Object.values(rowArray).join(",")
-            csvContent += row + "\r\n"
+            csvContent += row + "\r\n" 
         })
         var encodeUri = encodeURI(csvContent)
         var link = document.createElement("a")

@@ -1,0 +1,30 @@
+author: Ruan Carniato US
+open source thang 4 2018
+release 29 4 2021
+---
+tham khao https://viblo.asia/p/series-solidjs-tap-1-solidjs-la-gi-vay-nhi-oK9VyQybVQR
+
+Là 1 thư viện Javascript tạo nên giao diện người dùng, SolidJS trực tiếp cập nhật thay đổi UI trên native DOM (không dùng Virtual DOM như một vài Javascript UI Library/ Framework khác)
+
+Cung cấp cơ chế Reactive chịu trách nhiệm cho việc theo dõi và tự động cập nhật thay đổi UI khi State hoặc Props thay đổi và Reactivity Primitives gồm 3 thành phần cốt lõi là Signal, Memo và Effect
+
+Áp dụng mô hình Component Based tạo nên các UI có khả năng tái sử dụng
+
+SolidJS sử dụng JSX: JavaScript XML là một cú pháp mở rộng cho phép lập trình viên viết HTML trong SolidJS dễ dàng 
+
+Hỗ trợ và cung cấp các Lifecycle Methods
+Hỗ trợ Typescript, SSR 
+
+
+
+
+
+
+----
+Compaser to ReactJS
+https://webtips.dev/solidjs-vs-react#google_vignette
+
+####
+Vitejs
+
+trong index.jsx render app document.getElementById('root'); root in index.HTML
