@@ -5,7 +5,7 @@ import CountryList from './components/Country-List';
 import CountryDetails from './components/Country-Detail';
 import CountryAdd from './components/Country-Add';
 import SeatsIO from './components/Seats-IO';
-import Planner from './components/Planner';
+// import Planner from './components/Planner';
 // import 'solid-devtools';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
           <Nav.Link class="text-white" link href="/">Home</Nav.Link>
           <Nav.Link class="text-white" link href="/countries">Countries</Nav.Link>
           <Nav.Link class="text-white" link href="/seats-io">SeatsIO</Nav.Link>
-          <Nav.Link class="text-white" link href="/planner" style={{ display: 'none' }}>Planner</Nav.Link>
+          {/* <Nav.Link class="text-white" link href="/planner" style={{ display: 'none' }}>Planner</Nav.Link> */}
         </Navbar>
 
         <Routes>
@@ -25,7 +25,7 @@ function App() {
           <Route path="/country-add" component={CountryAdd} />
           <Route path="/country-details/:id" component={CountryDetails} />
           <Route path="/seats-io" component={SeatsIO} />
-          <Route path="/planner" component={Planner} />
+          {/* <Route path="/planner" component={Planner} /> */}
         </Routes>
       </Container>
       <style>{`
