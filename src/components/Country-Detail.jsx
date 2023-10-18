@@ -51,7 +51,7 @@ const CountryDetails = (props) => {
         await supabase.from('countries').delete().eq('id', id).then(rs => {
             console.log('deleted')
             setIsHandling(false)
-            window.location.href = "/";
+            window.location.href = "/countries";
         })
     }
 
@@ -77,7 +77,7 @@ const CountryDetails = (props) => {
             <header>
                 <h1>Country Detail</h1>
                 <Breadcrumb>
-                    <Breadcrumb.Item href="/">Countries</Breadcrumb.Item>
+                    <Breadcrumb.Item href="/countries">Countries</Breadcrumb.Item>
                     <Breadcrumb.Item active>Detail</Breadcrumb.Item>
                 </Breadcrumb>
             </header>
