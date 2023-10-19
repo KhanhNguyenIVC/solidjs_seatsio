@@ -1,0 +1,7 @@
+.home-content {
+    font-size: 18px;
+}
+
+.home-content li:not(:first-child) {
+    margin-top: 1rem;
+}

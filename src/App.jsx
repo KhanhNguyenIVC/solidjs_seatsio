@@ -1,5 +1,5 @@
 import { Routes, Route } from '@solidjs/router';
-import { Navbar, Container, Nav } from 'solid-bootstrap';
+import { Navbar, Container, Nav, NavDropdown } from 'solid-bootstrap';
 import Home from './components/Home';
 import CountryList from './components/Country-List';
 import CountryDetails from './components/Country-Detail';
@@ -11,9 +11,21 @@ import SeatsIO from './components/Seats-IO';
 function App() {
   return (
     <>
-      <Container>
-        <Navbar bg="dark" expand="lg" class="rounded-bottom">
-          <Nav.Link class="text-white" link href="/">Home</Nav.Link>
+      <Container fluid>
+        <Navbar variant="dark" bg="dark" class="rounded-bottom">
+          <NavDropdown
+            id="nav-dropdown-dark-example"
+            title="Basics"
+            menuVariant="dark"
+          >
+            <NavDropdown.Item href="/1">Introduction</NavDropdown.Item>
+            <NavDropdown.Item href="/2">Control Flow</NavDropdown.Item>
+            <NavDropdown.Item href="/3">Lifecycles</NavDropdown.Item>
+            {/* <NavDropdown.Item href="/4">Bindings</NavDropdown.Item>
+            <NavDropdown.Item href="/5">Props</NavDropdown.Item>
+            <NavDropdown.Item href="/6">Stores</NavDropdown.Item> */}
+          </NavDropdown>
+
           <Nav.Link class="text-white" link href="/countries">Countries</Nav.Link>
           <Nav.Link class="text-white" link href="/seats-io">SeatsIO</Nav.Link>
           {/* <Nav.Link class="text-white" link href="/planner" style={{ display: 'none' }}>Planner</Nav.Link> */}
@@ -21,6 +33,7 @@ function App() {
 
         <Routes>
           <Route path="/" component={Home} />
+          <Route path="/:id" component={Home} />
           <Route path="/countries" component={CountryList} />
           <Route path="/country-add" component={CountryAdd} />
           <Route path="/country-details/:id" component={CountryDetails} />
@@ -31,6 +44,7 @@ function App() {
       <style>{`
         a {color:#0ea5e9;}
         html, body {height: 100%}
+        #nav-dropdown-dark-example {color:white}
       `}</style>
     </>
   );
