@@ -44,7 +44,7 @@ const Home = () => {
             <div class='home-content'>
                 {/* INTRODUCTION */}
                 <Show
-                    when={id == '1'}
+                    when={id == '1' || id == undefined}
                 >
                     <Row >
                         <Col sm={4}>
@@ -57,10 +57,10 @@ const Home = () => {
                             </ul>
                         </Col>
                         <Col sm={8}>
-                            <iframe
+                            {/* <iframe
                                 src={CODESANDBOX_URL}
                                 style="width:100%;height:150%;border:0;border-radius:4px;overflow:hidden"
-                                sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+                                sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe> */}
                         </Col>
                     </Row>
                 </Show>

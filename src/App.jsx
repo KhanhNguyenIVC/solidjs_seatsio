@@ -9,6 +9,12 @@ import SeatsIO from './components/Seats-IO';
 // import 'solid-devtools';
 
 function App() {
+  // const redirectBasics = (id) => {
+  //   // window.location.href = "/" + id;
+  //   window.location.replace("/" + id);
+
+  // }
+
   return (
     <>
       <Container fluid>
