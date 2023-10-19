@@ -5,3 +5,13 @@
 .home-content li:not(:first-child) {
     margin-top: 1rem;
 }
+
+.solid-logo {
+    width: 40%;
+    height: 40%;
+    position: absolute;
+    margin: 0px 0px 0px 20px;
+    /* -webkit-animation:spin 12s linear infinite;
+    -moz-animation:spin 12s linear infinite; */
+    animation:spin 12s linear infinite;
+}

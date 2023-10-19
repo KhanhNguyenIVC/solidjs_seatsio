@@ -2,6 +2,7 @@ import "./Home.css";
 import { createSignal, onMount, Show } from "solid-js";
 import { Row, Col } from "solid-bootstrap";
 import { useParams } from "@solidjs/router";
+import solidLogo from '../logo.svg'
 
 const Home = () => {
     /**
@@ -31,7 +32,7 @@ const Home = () => {
                 setTitlePage('Lifecycles')
                 break
             default:
-                setTitlePage('Introduction')
+                setTitlePage('SolidJS Essentials')
                 break
         }
     }
@@ -42,9 +43,9 @@ const Home = () => {
             <p style={'color: #dc3545'}>In development progress</p>
 
             <div class='home-content'>
-                {/* INTRODUCTION */}
+                {/* Essentials */}
                 <Show
-                    when={id == '1' || id == undefined}
+                    when={id == undefined}
                 >
                     <Row >
                         <Col sm={4}>
@@ -57,14 +58,31 @@ const Home = () => {
                             </ul>
                         </Col>
                         <Col sm={8}>
-                            {/* <iframe
-                                src={CODESANDBOX_URL}
-                                style="width:100%;height:150%;border:0;border-radius:4px;overflow:hidden"
-                                sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe> */}
+                            <img src={solidLogo} class="solid-logo" alt="Solid logo" />
                         </Col>
                     </Row>
                 </Show>
 
+                {/* Introduction */}
+                <Show
+                    when={id === '1'}
+                >
+                    <Col sm={4}>
+                        <ul>
+                            <li>Just like React, Solid uses JSX to render HTML in the browser. It also uses similar syntax for reactivity to update DOM in real-time. However, unlike React, it uses a compiled DOM instead of virtual DOM.Solid components allow only a single JSX element at the top level. To combat this, you can use special JSX elements called fragments</li>
+                            <li>Components can be nested inside one another. For instance, here you have a &#60;Header&#62; component</li>
+                            <li>Signals are the cornerstone of reactivity in Solid. They contain values that change over time; when you change a signal's value, it automatically updates anything that uses it.</li>
+                            <li>Signals are trackable values, but they are only one half of the equation. To complement those are observers that can be updated by those trackable values. An effect is one such observer; it runs a side effect that depends on signals.</li>
+
+                        </ul>
+                    </Col>
+                    <Col sm={8}>
+                        {/* <iframe
+                                src={CODESANDBOX_URL}
+                                style="width:100%;height:150%;border:0;border-radius:4px;overflow:hidden"
+                                sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe> */}
+                    </Col>
+                </Show>
             </div>
         </>
     )
