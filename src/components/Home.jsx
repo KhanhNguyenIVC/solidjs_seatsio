@@ -67,21 +67,23 @@ const Home = () => {
                 <Show
                     when={id === '1'}
                 >
-                    <Col sm={4}>
-                        <ul>
-                            <li>Just like React, Solid uses JSX to render HTML in the browser. It also uses similar syntax for reactivity to update DOM in real-time. However, unlike React, it uses a compiled DOM instead of virtual DOM.Solid components allow only a single JSX element at the top level. To combat this, you can use special JSX elements called fragments</li>
-                            <li>Components can be nested inside one another. For instance, here you have a &#60;Header&#62; component</li>
-                            <li>Signals are the cornerstone of reactivity in Solid. They contain values that change over time; when you change a signal's value, it automatically updates anything that uses it.</li>
-                            <li>Signals are trackable values, but they are only one half of the equation. To complement those are observers that can be updated by those trackable values. An effect is one such observer; it runs a side effect that depends on signals.</li>
+                    <Row >
+                        <Col sm={4}>
+                            <ul>
+                                <li>Just like React, Solid uses JSX to render HTML in the browser. It also uses similar syntax for reactivity to update DOM in real-time. However, unlike React, it uses a compiled DOM instead of virtual DOM.Solid components allow only a single JSX element at the top level. To combat this, you can use special JSX elements called fragments</li>
+                                <li>Components can be nested inside one another. For instance, here you have a &#60;Header&#62; component</li>
+                                <li>Signals are the cornerstone of reactivity in Solid. They contain values that change over time; when you change a signal's value, it automatically updates anything that uses it.</li>
+                                <li>Signals are trackable values, but they are only one half of the equation. To complement those are observers that can be updated by those trackable values. An effect is one such observer; it runs a side effect that depends on signals.</li>
 
-                        </ul>
-                    </Col>
-                    <Col sm={8}>
-                        {/* <iframe
-                                src={CODESANDBOX_URL}
+                            </ul>
+                        </Col>
+                        <Col sm={8}>
+                            <iframe
+                                src="https://codesandbox.io/p/github/KhanhNguyenIVC/solidjs_example/main?file=%2Fsrc%2Fpages%2FIntroduction.jsx%3A1%2C1&layout=%257B%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522rootPanelGroup%2522%253A%257B%2522direction%2522%253A%2522horizontal%2522%252C%2522contentType%2522%253A%2522UNKNOWN%2522%252C%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522id%2522%253A%2522ROOT_LAYOUT%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522UNKNOWN%2522%252C%2522direction%2522%253A%2522vertical%2522%252C%2522id%2522%253A%2522clnwjgvye0007356lrt2ibcjf%2522%252C%2522sizes%2522%253A%255B100%252C0%255D%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522EDITOR%2522%252C%2522direction%2522%253A%2522horizontal%2522%252C%2522id%2522%253A%2522EDITOR%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522EDITOR%2522%252C%2522id%2522%253A%2522clnwjgvye0003356la1fjckbz%2522%257D%255D%252C%2522sizes%2522%253A%255B100%255D%257D%252C%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522SHELLS%2522%252C%2522direction%2522%253A%2522horizontal%2522%252C%2522id%2522%253A%2522SHELLS%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522SHELLS%2522%252C%2522id%2522%253A%2522clnwjgvye0005356lpnug9m0w%2522%257D%255D%252C%2522sizes%2522%253A%255B100%255D%257D%255D%257D%252C%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522DEVTOOLS%2522%252C%2522direction%2522%253A%2522vertical%2522%252C%2522id%2522%253A%2522DEVTOOLS%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522DEVTOOLS%2522%252C%2522id%2522%253A%2522clnwjgvye0006356lig053jzk%2522%257D%255D%252C%2522sizes%2522%253A%255B100%255D%257D%255D%252C%2522sizes%2522%253A%255B60%252C40%255D%257D%252C%2522tabbedPanels%2522%253A%257B%2522clnwjgvye0003356la1fjckbz%2522%253A%257B%2522id%2522%253A%2522clnwjgvye0003356la1fjckbz%2522%252C%2522tabs%2522%253A%255B%257B%2522type%2522%253A%2522FILE%2522%252C%2522filepath%2522%253A%2522%252Fsrc%252Fpages%252FIntroduction.jsx%2522%252C%2522id%2522%253A%2522clnx113j4006y356lqf1b5cij%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522state%2522%253A%2522IDLE%2522%257D%255D%252C%2522activeTabId%2522%253A%2522clnx113j4006y356lqf1b5cij%2522%257D%252C%2522clnwjgvye0006356lig053jzk%2522%253A%257B%2522id%2522%253A%2522clnwjgvye0006356lig053jzk%2522%252C%2522activeTabId%2522%253A%2522clnwjpg5h00kg356lo7cm65ru%2522%252C%2522tabs%2522%253A%255B%257B%2522type%2522%253A%2522TASK_PORT%2522%252C%2522taskId%2522%253A%2522dev%2522%252C%2522port%2522%253A5173%252C%2522id%2522%253A%2522clnwjpg5h00kg356lo7cm65ru%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522path%2522%253A%2522%252Fintroduction%2522%257D%255D%257D%252C%2522clnwjgvye0005356lpnug9m0w%2522%253A%257B%2522id%2522%253A%2522clnwjgvye0005356lpnug9m0w%2522%252C%2522activeTabId%2522%253A%2522clnwjpala00fc356lii2eir42%2522%252C%2522tabs%2522%253A%255B%257B%2522type%2522%253A%2522TASK_LOG%2522%252C%2522taskId%2522%253A%2522dev%2522%252C%2522id%2522%253A%2522clnwjpala00fc356lii2eir42%2522%252C%2522mode%2522%253A%2522permanent%2522%257D%255D%257D%257D%252C%2522showDevtools%2522%253Atrue%252C%2522showShells%2522%253Afalse%252C%2522showSidebar%2522%253Afalse%252C%2522sidebarPanelSize%2522%253A0%257D"
                                 style="width:100%;height:150%;border:0;border-radius:4px;overflow:hidden"
-                                sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe> */}
-                    </Col>
+                                sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+                        </Col>
+                    </Row>
                 </Show>
             </div>
         </>
