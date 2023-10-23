@@ -4,7 +4,7 @@ import { useParams } from "@solidjs/router";
 import { createClient } from '@supabase/supabase-js';
 import { createStore } from "solid-js/store";
 
-const CountryDetails = (props) => {
+const CountryDetails = () => {
     const id = useParams().id
     const [showToggle, setShowToggle] = createSignal(false)
     const [loading, setLoading] = createSignal(false)

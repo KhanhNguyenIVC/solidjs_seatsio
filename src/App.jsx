@@ -24,7 +24,7 @@ function App() {
             title="Basics"
             menuVariant="dark"
           >
-            <NavDropdown.Item href="/1">Introduction</NavDropdown.Item>
+            <NavDropdown.Item href="/1">Basic Reactivity</NavDropdown.Item>
             <NavDropdown.Item href="/2">Control Flow</NavDropdown.Item>
             <NavDropdown.Item href="/3">Lifecycles</NavDropdown.Item>
             {/* <NavDropdown.Item href="/4">Bindings</NavDropdown.Item>

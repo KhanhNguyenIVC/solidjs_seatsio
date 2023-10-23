@@ -27,7 +27,7 @@ const Home = () => {
     const getTitlePage = () => {
         switch (id) {
             case '1':
-                setTitlePage('Introduction')
+                setTitlePage('Basic Reactivity')
                 break
             case '2':
                 setTitlePage('Control Flow')
@@ -131,20 +131,20 @@ const Home = () => {
                                 However, often it is more readable to use Solid's &#60;Show&#62; component.
                                 </li> */}
                                 <li><span class="text-focus">&#60;Show&#62</span> sử dụng component này khi muốn set điều kiện để hiển thị.<br />
-                                Sử dụng thuộc tính <cite>fallback</cite> để set điều kiện ngược lại.
+                                    Sử dụng thuộc tính <cite>fallback</cite> để set điều kiện ngược lại.
                                 </li>
 
                                 {/* <li>The <span class="text-focus">&#60;For&#62</span> component is the best way to loop over an array of objects.<br />
                                 As the array changes, <span class="text-focus">&#60;For&#62</span> updates or moves items in the DOM rather than recreating them. Let's look at an example.
                                 </li> */}
                                 <li><span class="text-focus">&#60;For&#62</span> là component dùng để loop một mảng. <br />
-                                Khi mảng thay đổi DOM sẽ tự động được update lại.</li>
+                                    Khi mảng thay đổi DOM sẽ tự động được update lại.</li>
 
                                 {/* <li>Sometimes you need to deal with conditionals with more than 2 mutual exclusive outcomes. For this case, we have the <span class="text-focus">&#60;Switch&#62</span> and <span class="text-focus">&#60;Match&#62</span> components modeled roughly after JavaScript's switch/case.<br />
                                 It will try in order to match each condition, stopping to render the first that evaluates to true. Failing all of them, it will render the fallback.
                                 </li> */}
                                 <li><span class="text-focus">&#60;Switch&#62</span> và <span class="text-focus">&#60;Match&#62</span> khi có nhiều điều kiện để hiển thị.<br />
-                                Sử dụng thuộc tính <cite>fallback</cite> để set điều kiện default.
+                                    Sử dụng thuộc tính <cite>fallback</cite> để set điều kiện default.
                                 </li>
                             </ul>
                         </Col>
@@ -161,7 +161,44 @@ const Home = () => {
                         </Col>
                     </Row>
                 </Show>
-            </div>
+
+                {/* Lifecycles */}
+                <Show
+                    when={id === '3'}
+                >
+                    <Row>
+                        <Col sm={4} class="card-content-basics rounded-start">
+                            <ul>
+                                {/* <li><span class="text-focus">onMount</span>: Registers a method that runs after initial render and elements have been mounted.<br />
+                                    Ideal for using refs and managing other one time side effects.<br />
+                                    It is equivalent to a createEffect which does not have any dependencies.
+                                </li> */}
+                                <li>
+                                    <span class="text-focus">onMount</span>: trước khi render trang, khi cần thực thi các initial methods.
+                                </li>
+                                {/* <li><span class="text-focus">onCleanup</span>: Registers a method that runs after initial render and elements have been mounted.<br />
+                                Ideal for using refs and managing other one time side effects.<br />
+                                It is equivalent to a createEffect which does not have any dependencies.
+                                </li> */}
+                                <li>
+                                    <span class="text-focus">onCleanup</span>: Sự kiện này được gọi khi qua trang khác hoặc đóng trang hiện tại.
+                                </li>
+                            </ul>
+                        </Col>
+                        <Col class="ps-0">
+                            <Show
+                                when={!isIframeLoaded()}
+                            >
+                                <div class="text-center" style={'margin-top: 30vh'}><div class='loading-codesandbox'></div><h5 style={'color:#242424'}>Loading source code...</h5></div>
+                            </Show>
+                            <iframe
+                                src="https://codesandbox.io/p/github/KhanhNguyenIVC/solidjs_example/main?file=%2Fsrc%2Fpages%2FLifecycles.jsx%3A1%2C1&layout=%257B%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522rootPanelGroup%2522%253A%257B%2522direction%2522%253A%2522horizontal%2522%252C%2522contentType%2522%253A%2522UNKNOWN%2522%252C%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522id%2522%253A%2522ROOT_LAYOUT%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522UNKNOWN%2522%252C%2522direction%2522%253A%2522vertical%2522%252C%2522id%2522%253A%2522clnwjgvye0007356lrt2ibcjf%2522%252C%2522sizes%2522%253A%255B100%252C0%255D%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522EDITOR%2522%252C%2522direction%2522%253A%2522horizontal%2522%252C%2522id%2522%253A%2522EDITOR%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522EDITOR%2522%252C%2522id%2522%253A%2522clnwjgvye0003356la1fjckbz%2522%257D%255D%252C%2522sizes%2522%253A%255B100%255D%257D%252C%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522SHELLS%2522%252C%2522direction%2522%253A%2522horizontal%2522%252C%2522id%2522%253A%2522SHELLS%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522SHELLS%2522%252C%2522id%2522%253A%2522clnwjgvye0005356lpnug9m0w%2522%257D%255D%252C%2522sizes%2522%253A%255B100%255D%257D%255D%257D%252C%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522DEVTOOLS%2522%252C%2522direction%2522%253A%2522vertical%2522%252C%2522id%2522%253A%2522DEVTOOLS%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522DEVTOOLS%2522%252C%2522id%2522%253A%2522clnwjgvye0006356lig053jzk%2522%257D%255D%252C%2522sizes%2522%253A%255B100%255D%257D%255D%252C%2522sizes%2522%253A%255B58.109243695378154%252C41.890756304621846%255D%257D%252C%2522tabbedPanels%2522%253A%257B%2522clnwjgvye0003356la1fjckbz%2522%253A%257B%2522id%2522%253A%2522clnwjgvye0003356la1fjckbz%2522%252C%2522activeTabId%2522%253A%2522clo2t5xt1006a356lj1phqeap%2522%252C%2522tabs%2522%253A%255B%257B%2522type%2522%253A%2522FILE%2522%252C%2522filepath%2522%253A%2522%252Fsrc%252Fpages%252FLifecycles.jsx%2522%252C%2522id%2522%253A%2522clo2t5xt1006a356lj1phqeap%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522state%2522%253A%2522IDLE%2522%257D%255D%257D%252C%2522clnwjgvye0006356lig053jzk%2522%253A%257B%2522id%2522%253A%2522clnwjgvye0006356lig053jzk%2522%252C%2522activeTabId%2522%253A%2522clo2tavi5009d356l4wi6bb1b%2522%252C%2522tabs%2522%253A%255B%257B%2522type%2522%253A%2522TASK_PORT%2522%252C%2522port%2522%253A5173%252C%2522taskId%2522%253A%2522dev%2522%252C%2522id%2522%253A%2522clo2tavi5009d356l4wi6bb1b%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522path%2522%253A%2522%252Flifecycles%2522%257D%255D%257D%252C%2522clnwjgvye0005356lpnug9m0w%2522%253A%257B%2522id%2522%253A%2522clnwjgvye0005356lpnug9m0w%2522%252C%2522activeTabId%2522%253A%2522clo2t7gqb00ag356l1xbvpb4d%2522%252C%2522tabs%2522%253A%255B%257B%2522type%2522%253A%2522TASK_LOG%2522%252C%2522taskId%2522%253A%2522dev%2522%252C%2522id%2522%253A%2522clo2t7gqb00ag356l1xbvpb4d%2522%252C%2522mode%2522%253A%2522permanent%2522%257D%255D%257D%257D%252C%2522showDevtools%2522%253Atrue%252C%2522showShells%2522%253Afalse%252C%2522showSidebar%2522%253Afalse%252C%2522sidebarPanelSize%2522%253A0%257D"
+                                class="ifra-card rounded-end"
+                                sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+                        </Col>
+                    </Row>
+                </Show>
+            </div >
         </>
     )
 }
