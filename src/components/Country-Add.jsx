@@ -106,7 +106,7 @@ const CountryAdd = () => {
             <header>
                 <h1>Country Add</h1>
                 <Breadcrumb>
-                    <Breadcrumb.Item href="/coutries">Countries</Breadcrumb.Item>
+                    <Breadcrumb.Item href="/countries">Countries</Breadcrumb.Item>
                     <Breadcrumb.Item active>Add</Breadcrumb.Item>
                 </Breadcrumb>
             </header>
@@ -179,7 +179,7 @@ const CountryAdd = () => {
                     </Card.Body>
                 </Card>
             </section>
-
+            <br />
             {/* Toats Model */}
             <ToastContainer
                 className="position-fixed bottom-0 end-0 p-3"

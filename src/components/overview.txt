@@ -28,3 +28,41 @@ https://webtips.dev/solidjs-vs-react#google_vignette
 Vitejs
 
 trong index.jsx render app document.getElementById('root'); root in index.HTML
+
+{
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.tabSize": 4,
+    "editor.renderWhitespace": "all",
+    "editor.formatOnSave": false,
+    "[php]": {
+        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+    },
+    "explorer.confirmDelete": false,
+    "workbench.colorTheme": "React Theme",
+    "[vue]": {
+        "editor.defaultFormatter": "octref.vetur"
+    },
+    "editor.stablePeek": true,
+    "workbench.editor.enablePreview": false,
+    // Cake PHP
+    "intelephense.environment.includePaths": [
+        "/path/to/lib1",
+        "/path/to/lib2"
+    ],
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "editor.definitionLinkOpensInPeek": false,
+    "workbench.colorCustomizations": {
+        "editor.selectionBackground": "#1F618D",
+        "editor.selectionHighlightBackground": "#1F618D",
+        "editor.findMatchBackground": "#04a5e5",
+        "editor.findMatchHighlightBackground": "#1F618D",
+        // "editor.lineHighlightBackground": "#04a5e5",
+        "editor.wordHighlightBackground": "#1F618D",
+        "editorCursor.foreground": "#E74C3C",
+        "editorUnnecessaryCode.opacity": "#000000c0",
+        "editorUnnecessaryCode.border": "#4b4140",
+    },
+    "editor.showUnused": true,
+    "window.menuBarVisibility": "compact",
+    "files.autoSave": "afterDelay"
+}

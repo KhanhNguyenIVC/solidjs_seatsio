@@ -46,11 +46,12 @@
 }
 
 .card-content-basics {
-    height: 80vh;
+    height: 77vh;
     background-color: #242424;
     padding-left: 0px;
     padding-top: 0.5rem;
     margin-left: 1rem;
+    overflow: auto;
 }
 
 .text-focus {

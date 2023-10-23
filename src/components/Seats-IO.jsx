@@ -250,7 +250,7 @@ const SeatsIO = () => {
         <>
             <h1>Seats IO Chart</h1>
             <div id="chart" class="seatsio-chart"></div>
-            <Row>
+            <Row class="mt-1">
                 <Col xs={5}>
                     <h5>Tickets have selected</h5>
                     {
@@ -264,17 +264,10 @@ const SeatsIO = () => {
                                     }</For>
                                 </ul>
                                 <div>
-                                    <Card style={{ width: '39vh' }}>
+                                    <Card style={{ width: '56vh' }}>
                                         <Card.Body>
                                             Total: <Badge pill bg="dark">{ticketSelected().length} {ticketSelected().length <= 1 ? 'seat' : 'seats'}</Badge> - <span style={{'font-weight': 'bold'}}>{priceFormatter(totalPriceTicketSelected())}</span>
-                                            <Show
-                                                when={isHandling()}
-                                                fallback={
-                                                    <Button style={{ width: '13vh' }} onClick={[bookTicket, 'book_ticket_selected']} class="ms-3" variant="dark">Book</Button>
-                                                }
-                                            >
-                                                <Button style={{ width: '13vh' }} disabled="true" onClick={null} class="ms-3" variant="dark"><Spinner animation="border" role="status" variant="light" size="sm" />Handling...</Button>
-                                            </Show>
+                                            <Button style={{ width: '20vh' }} onClick={[bookTicket, 'book_ticket_selected']} class="ms-3" variant="dark">Book</Button>
                                         </Card.Body>
                                     </Card>
                                 </div>
@@ -294,21 +287,12 @@ const SeatsIO = () => {
                                         <ListGroup.Item>
                                             <Row>
                                                 <Col xs={9}>{i() + 1}. <span class={ticket.category_id === 1 ? 'txt-premium-ticket' : 'txt-standard-ticket'}>{ticket.ticket_id}</span></Col>
-                                                <Col><Button disabled={isHandling()} onClick={!isHandling() ? [clearTicket, ticket.ticket_id] : null} variant="dark" size="sm">x</Button></Col>
+                                                <Col><Button onClick={[clearTicket, ticket.ticket_id]} variant="dark" size="sm">x</Button></Col>
                                             </Row>
                                         </ListGroup.Item>
                                     }</For>
                                 </ListGroup>
-                                <div>
-                                    <Show
-                                        when={isHandling()}
-                                        fallback={
-                                            <Button style={{ width: '13vh' }} onClick={[clearAllTicket, 'clear_all_ticket_booked']} class="ms-3" variant="dark">Clear All</Button>
-                                        }
-                                    >
-                                        <Button style={{ width: '13vh' }} disabled="true" onClick={null} class="ms-3" variant="dark"><Spinner animation="border" role="status" variant="light" size="sm" />Handling...</Button>
-                                    </Show>
-                                </div>
+                                <Button style={{ width: '20vh' }} onClick={[clearAllTicket, 'clear_all_ticket_booked']} class="ms-3" variant="dark">Clear All</Button>
                             </div>
                         ) : (
                             <p>There's no ticket booked</p>

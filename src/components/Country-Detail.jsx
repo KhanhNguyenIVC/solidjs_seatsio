@@ -78,7 +78,7 @@ const CountryDetails = (props) => {
                 <h1>Country Detail</h1>
                 <Breadcrumb>
                     <Breadcrumb.Item href="/countries">Countries</Breadcrumb.Item>
-                    <Breadcrumb.Item active>Detail</Breadcrumb.Item>
+                    <Breadcrumb.Item active>{form.name}</Breadcrumb.Item>
                 </Breadcrumb>
             </header>
             <section>
@@ -119,20 +119,8 @@ const CountryDetails = (props) => {
                                             <Form.Label>GDP $USD</Form.Label>
                                             <Form.Control type="text" placeholder="GDP $USD" value={form.gdp} onChange={[updateFormField, 'gdp']} />
                                         </Form.Group>
-                                        <Show
-                                            when={isHandling()}
-                                            fallback={
-                                                <div>
-                                                    <Button style={{ width: '13vh' }} onClick={[updateCountry, form.id]} class="mt-3" variant="dark">Update</Button>
-                                                    <Button style={{ width: '13vh' }} onClick={[deleteCountry, form.id]} class="mt-3 ms-1" variant="danger">Delete</Button>
-                                                </div>
-                                            }
-                                        >
-                                            <div>
-                                                <Button style={{ width: '13vh' }} disabled="true" onClick={null} class="mt-3" variant="dark"><Spinner animation="border" role="status" variant="light" size="sm" />Handling...</Button>
-                                                <Button style={{ width: '13vh' }} disabled="true" onClick={null} class="mt-3 ms-1" variant="danger"><Spinner animation="border" role="status" variant="light" size="sm" />Handling...</Button>
-                                            </div>
-                                        </Show>
+                                        <Button style={{ width: '13vh' }} onClick={[updateCountry, form.id]} class="mt-3" variant="dark">Update</Button>
+                                        <Button style={{ width: '13vh' }} onClick={[deleteCountry, form.id]} class="mt-3 ms-1" variant="danger">Delete</Button>
                                     </Form>
                                 </Card.Body>
                             </Card>
@@ -140,7 +128,7 @@ const CountryDetails = (props) => {
                     )
                 }
             </section>
-
+            <br />
             {/* Toats Model */}
             <ToastContainer
                 className="position-fixed bottom-0 end-0 p-3"
