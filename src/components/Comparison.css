@@ -1,0 +1,27 @@
+/* .comparison-container {
+    background: #242424;
+    color:#ffffff;
+    border-radius: 3px;
+    padding: 7px;
+} */
+
+.txt-vue {
+    color: #499f76;
+}
+
+.txt-solid {
+    color: #91c2e6;
+}
+
+hr {
+    height: 2px !important;
+}
+
+.accordion-header {
+    background:#A9A9A9;
+}
+
+.accordion-body {
+    background: #242424;
+    color: #ffffff;
+}

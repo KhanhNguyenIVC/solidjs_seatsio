@@ -1,6 +1,7 @@
 import { Routes, Route } from '@solidjs/router';
 import { Navbar, Container, Nav, NavDropdown } from 'solid-bootstrap';
 import Home from './components/Home';
+import Comparison  from './components/Comparison ';
 import CountryList from './components/Country-List';
 import CountryDetails from './components/Country-Detail';
 import CountryAdd from './components/Country-Add';
@@ -32,6 +33,7 @@ function App() {
             <NavDropdown.Item href="/6">Stores</NavDropdown.Item> */}
           </NavDropdown>
 
+          <Nav.Link class="text-white" link href="/comparison">Comparison</Nav.Link>
           <Nav.Link class="text-white" link href="/countries">Countries</Nav.Link>
           <Nav.Link class="text-white" link href="/seats-io">SeatsIO</Nav.Link>
           {/* <Nav.Link class="text-white" link href="/planner" style={{ display: 'none' }}>Planner</Nav.Link> */}
@@ -40,6 +42,7 @@ function App() {
         <Routes>
           <Route path="/" component={Home} />
           <Route path="/:id" component={Home} />
+          <Route path="/comparison" component={Comparison} />
           <Route path="/countries" component={CountryList} />
           <Route path="/country-add" component={CountryAdd} />
           <Route path="/country-details/:id" component={CountryDetails} />
