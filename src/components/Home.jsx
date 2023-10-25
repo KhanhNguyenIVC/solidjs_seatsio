@@ -173,14 +173,14 @@ const Home = () => {
                                     It is equivalent to a createEffect which does not have any dependencies.
                                 </li> */}
                                 <li>
-                                    <span class="text-focus">onMount</span>: trước khi render trang, khi cần thực thi các initial methods.
+                                    <span class="text-focus">onMount</span> trước khi render trang, khi cần thực thi các initial methods.
                                 </li>
                                 {/* <li><span class="text-focus">onCleanup</span>: Registers a method that runs after initial render and elements have been mounted.<br />
                                 Ideal for using refs and managing other one time side effects.<br />
                                 It is equivalent to a createEffect which does not have any dependencies.
                                 </li> */}
                                 <li>
-                                    <span class="text-focus">onCleanup</span>: Sự kiện này được gọi khi qua trang khác hoặc đóng trang hiện tại.
+                                    <span class="text-focus">onCleanup</span> Sự kiện này được gọi khi qua trang khác hoặc đóng trang hiện tại.
                                 </li>
                             </ul>
                         </Col>
