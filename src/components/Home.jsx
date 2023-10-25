@@ -3,6 +3,7 @@ import { createSignal, onMount, Show } from "solid-js";
 import { Row, Col } from "solid-bootstrap";
 import { useParams } from "@solidjs/router";
 import solidLogo from '../logo.svg'
+import { useI18n } from '@amoutonbrady/solid-i18n';
 
 const Home = () => {
     /**
@@ -15,6 +16,7 @@ const Home = () => {
     const id = useParams().id
     const [titlePage, setTitlePage] = createSignal([])
     const [isIframeLoaded, setIsIframeLoaded] = createSignal(false)
+    const [t, { locale }] = useI18n();
 
     onMount(() => {
         getTitlePage()
@@ -52,6 +54,10 @@ const Home = () => {
                 >
                     <Row>
                         <Col sm={4} class="card-content-basics rounded-start">
+                            <h1>{t('hello', { name: 'n18' })}</h1>
+                            <span>{locale()}</span>
+                            <button onclick={() => {locale('vn')}}>VN</button>
+                            <button onclick={() => {locale('en')}}>EN</button>
                             <ul>
                                 <li>Là 1 thư viện Javascript tạo nên giao diện người dùng, SolidJS trực tiếp cập nhật thay đổi UI trên native DOM (không dùng Virtual DOM như một vài Javascript UI Library/ Framework khác)</li>
                                 <li>Cung cấp cơ chế Reactive chịu trách nhiệm cho việc theo dõi và tự động cập nhật thay đổi UI khi State hoặc Props thay đổi và Reactivity Primitives gồm 3 thành phần cốt lõi là Signal, Memo và Effect.</li>
@@ -61,7 +67,7 @@ const Home = () => {
                             </ul>
                         </Col>
                         <Col class="ps-0">
-                            <img src={solidLogo} class="solid-logo" alt="Solid logo" />
+                            {/* <img src={solidLogo} class="solid-logo" alt="Solid logo" /> */}
                         </Col>
                     </Row>
                 </Show>
