@@ -180,17 +180,17 @@ const Comparison = () => {
                             <br /><br />
                             <Col>
                                 {/* <span>Duration in milliseconds ± 95% confidence interval (Slowdown = Duration / Fastest)</span> */}
-                                <span>Đơn vị milliseconds (± cho mỗi lần chạy khác nhau)</span>
+                                <p>Đơn vị milliseconds (± cho mỗi lần chạy khác nhau)</p>
                                 <img src="/images/banchmark_keyed.png" style={'border-radius:6px'} />
                             </Col>
                             <Col>
                                 {/* <span>Startup metrics (lighthouse with mobile simulation)</span> */}
-                                <span>Startup metrics</span>
+                                <p>Startup metrics</p>
                                 <img src="/images/banchmark_startup.png" style={'border-radius:6px'} />
                             </Col>
                             <Col>
                                 {/* <span>Memory allocation in MBs ± 95% confidence interval</span> */}
-                                <span>Sử dụng Memory (MBs)</span>
+                                <p>Sử dụng Memory (MBs)</p>
                                 <img src="/images/banchmark_memory.png" style={'border-radius:6px'} />
                             </Col>
                         </Row>
