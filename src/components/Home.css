@@ -12,9 +12,9 @@
     height: 40%;
     position: absolute;
     margin: 50px 0px 0px 20px;
-    -webkit-animation:spin 12s linear infinite;
-    -moz-animation:spin 12s linear infinite;
-    animation:spin 12s linear infinite;
+    -webkit-animation: spin 12s linear infinite;
+    -moz-animation: spin 12s linear infinite;
+    animation: spin 12s linear infinite;
 }
 
 .loading-codesandbox {
@@ -59,5 +59,16 @@
 }
 
 .ifra-card {
-    width:100%;height:100%;border:0;overflow:hidden;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    overflow: hidden;
+}
+
+.li-conditional {
+    cursor: pointer;
+    background: #00FFFF;
+    padding: 10px;
+    width: 100px;
+    border-radius: 7px;
 }

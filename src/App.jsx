@@ -1,7 +1,9 @@
 import { Routes, Route } from '@solidjs/router';
 import { Navbar, Container, Nav, NavDropdown } from 'solid-bootstrap';
 import Home from './components/Home';
-import Comparison  from './components/Comparison ';
+import Comparison from './components/Comparison';
+import ComparisonReactivity from './components/ComparisonReactivity';
+import ComparisonConditional from './components/ComparisonConditional';
 import CountryList from './components/Country-List';
 import CountryDetails from './components/Country-Detail';
 import CountryAdd from './components/Country-Add';
@@ -43,6 +45,8 @@ function App() {
           <Route path="/" component={Home} />
           <Route path="/:id" component={Home} />
           <Route path="/comparison" component={Comparison} />
+          <Route path="/comparison/reactivity" component={ComparisonReactivity} />
+          <Route path="/comparison/conditional" component={ComparisonConditional} />
           <Route path="/countries" component={CountryList} />
           <Route path="/country-add" component={CountryAdd} />
           <Route path="/country-details/:id" component={CountryDetails} />
