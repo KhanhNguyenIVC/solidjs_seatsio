@@ -8,13 +8,14 @@ import CountryList from './components/Country-List';
 import CountryDetails from './components/Country-Detail';
 import CountryAdd from './components/Country-Add';
 import SeatsIO from './components/Seats-IO';
+import Error404 from './components/Error404';
 import { useI18n } from '@amoutonbrady/solid-i18n';
 import { basicsParam, setBasicsParam } from "../store/basic_param";
 // import 'solid-devtools';
 
 function App() {
   const setBasicsParamFn = (idParam) => {
-    setBasicsParam({...basicsParam,id:idParam})
+    setBasicsParam({ ...basicsParam, id: idParam })
   }
 
   const [t, { locale }] = useI18n();
@@ -57,6 +58,7 @@ function App() {
           <Route path="/country-add" component={CountryAdd} />
           <Route path="/country-details/:id" component={CountryDetails} />
           <Route path="/seats-io" component={SeatsIO} />
+          <Route path="*" component={Error404} />
         </Routes>
       </Container>
       <style>{`
